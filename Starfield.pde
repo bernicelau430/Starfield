@@ -1,11 +1,15 @@
 Particle[] parts;
+OddballParticle[] odds;
 void setup(){
 	size(500, 500);
   background(0);
-  parts = new Particle[2000];
+  parts = new Particle[3000];
+  odds = new OddballParticle[25];
   for (int i = 0; i < parts.length; i++) {
     parts[i] = new Particle();
-    parts[0] = new OddballParticle();
+  }
+  for (int i = 0; i < odds.length; i++) {
+    parts[i] = new OddballParticle();
   }
 } 
 void draw(){
@@ -31,6 +35,7 @@ class Particle{
      y = Math.sin(angle) * speed + y;
    }
    void show(){
+     noStroke();
      fill(myColor);
      ellipse((float)x, (float)y, 10, 10);
    }
